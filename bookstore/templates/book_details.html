@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.title }} - Mul'ata Hayu Academy</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Mul'ata Hayu Academy</a>
+    </nav>
+
+    <div class="container my-5">
+        <h2>{{ book.title }}</h2>
+        <img src="{{ url_for('static', filename='images/' + book.cover_image) }}" class="img-fluid mb-4" alt="{{ book.title }}">
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <p><strong>Grade:</strong> {{ book.grade }}</p>
+        <a href="{{ url_for('static', filename='images/' + book.pdf_file) }}" class="btn btn-success" download>Download PDF</a>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2025 Mul'ata Hayu Academy. All Rights Reserved.
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <a href="/">Back to Home</a>
+    </header>
+
+    <div class="books">
+        {% for book in results %}
+        <div class="book">
+            <img src="{{ url_for('static', filename='images/' + book.cover_image.split('/')[-1]) }}" alt="{{ book.title }}">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.description }}</p>
+            <a href="{{ url_for('book_details', book_id=book.book_id) }}">Read more</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
